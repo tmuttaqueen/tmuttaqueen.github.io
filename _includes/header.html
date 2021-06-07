@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ site.name }}</title>
+    <link rel = "icon" href ="{{ site.baseurl }}/static/site-logo.png" type = "image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is my personal website. I write about my stories here. I also try to write
+                                      about the things I am learning in my Blog">
+    <meta name="keywords" content="Tanveer Muttaqueen Python Django Personal Blog Programming Contest ICPC">
+    <meta name="author" content="Tanveer Muttaqueen">
+
+
+
+        <!-- Bootstrap core CSS -->
+    <link href="{{ site.baseurl }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/css/custom.css" rel="stylesheet">
+    <script src="{{ site.baseurl }}/js/jquery-3.6.0.min.js"></script>
+    <script src="{{ site.baseurl }}/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      main > .container {
+        padding: 60px 15px 0;
+      }
+
+      /** {*/
+      /*    outline: purple solid 1px;*/
+      /*}*/
+    </style>
+
+
+
+  </head>
+  <body class="d-flex flex-column h-100 site-bg">
+
+<header>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.name }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ site.baseurl }}/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ site.baseurl }}/blog_posts.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ site.baseurl }}/experience.html">Experience</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ site.baseurl }}/programming_contests.html" >Contests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ site.baseurl }}/projects.html" >Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ site.baseurl }}/static/Tanveer Muttaqueen Resume.pdf">My Resume</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>
