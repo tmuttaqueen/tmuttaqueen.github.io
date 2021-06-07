@@ -23,7 +23,7 @@ email: tanveer.mutta@gmail.com
 description: ""
 
 baseurl: ""
-url: http://127.0.0.1:4000
+url: https://tmuttaqueen.github.io
 
 github_username: tmuttaqueen
 test: working
