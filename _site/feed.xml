@@ -1,4 +1,197 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://127.0.0.1:4000/" rel="alternate" type="text/html" /><updated>2021-06-07T19:40:39+06:00</updated><id>http://127.0.0.1:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle></subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://127.0.0.1:4000/jekyll/update/2021/06/05/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-06-05T23:06:15+06:00</published><updated>2021-06-05T23:06:15+06:00</updated><id>http://127.0.0.1:4000/jekyll/update/2021/06/05/welcome-to-jekyll</id><content type="html" xml:base="http://127.0.0.1:4000/jekyll/update/2021/06/05/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="http://127.0.0.1:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://127.0.0.1:4000/" rel="alternate" type="text/html" /><updated>2021-06-30T00:30:43+06:00</updated><id>http://127.0.0.1:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle></subtitle><entry><title type="html">Principal component analysis using singular value decomposition part 1</title><link href="http://127.0.0.1:4000/2021/06/20/Principal-Component-Analysis-Part-1.html" rel="alternate" type="text/html" title="Principal component analysis using singular value decomposition part 1" /><published>2021-06-20T23:06:15+06:00</published><updated>2021-06-20T23:06:15+06:00</updated><id>http://127.0.0.1:4000/2021/06/20/Principal-Component-Analysis-Part-1</id><content type="html" xml:base="http://127.0.0.1:4000/2021/06/20/Principal-Component-Analysis-Part-1.html">&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-12&quot;&gt;
+
+        &lt;h3 class=&quot;text-center&quot;&gt; PCA Using Singular Value Decomposition (Part 1) &lt;/h3&gt;
+        &lt;p class=&quot;pt-4&quot;&gt;Using Principal Component Analysis (PCA) we can change the basis of data points. Suppose, we have m data
+        points each with n dimension. Then, using PCA we can map the data points using k ( k &lt;= n ) unit vectors
+        as the new basis. If k &lt; n then we have reduced the dimension of the data points from n to k, may be with some
+        data loss. In Machine Learning terms, each dimension is a feature vector. Thus we can use PCA to extract the
+        important feature let say, most important subsets of feature that can explain 90% of data variance. &lt;/p&gt;
+        &lt;p&gt;
+            Before continuing how PCA works and its mathematical explanation we need to have basic understanding of
+            some linear algebra concepts.
+            &lt;ul&gt;
+                &lt;li&gt;
+                    &lt;h5&gt; Eigenvalue, Eigenvector and Eigen decomposition &lt;/h5&gt;
+                    &lt;p&gt;
+                        A matrix represents linear transformation of a vector. Let A be a linear transformation square matrix and v be
+                        a vector, then y = Av is transformation of v using A. Linear transformation can have a rotation, then
+                        a scaling then another rotation of a vector. Lets say v is vector on which transformation using A
+                        doesn&apos;t cause it to rotate rather just makes it scale. Then, we can say v is a eigenvector of matrix
+                        A and the scaling factor is a eigenvalue of matrix A.
+                        &lt;div class=&quot;important-note text-center&quot;&gt;
+                    &lt;span class=&quot;math-eqn&quot;&gt;Av = &amp;lambda;v, where &amp;lambda;&amp;isin;R, A&amp;isin;R&lt;sup&gt;nxn&lt;/sup&gt; and v&amp;isin;R&lt;sup&gt;nx1&lt;/sup&gt; &lt;/span&gt; &lt;br&gt;
+                            Here v is a eigenvector and &amp;lambda; is eigenvalue of matrix A.
+                        &lt;/div&gt;
+                        If A is real symmetric matrix then it satisfies two properties of eigenvalue and eigenvector.
+                        &lt;ol&gt;
+                            &lt;li&gt;It has
+                                n eigenvalues (not necessarily distinct) and one eigenvector for each eigenvalues. &lt;/li&gt;
+                            &lt;li&gt;These eigenvectors
+                                are mutually orthogonal. &lt;/li&gt;
+                        &lt;/ol&gt;
+                        &lt;div class=&quot;important-note&quot;&gt;
+                            So, we have &lt;br&gt;
+                            &lt;span class=&quot;math-eqn&quot;&gt;
+                                Av&lt;sub&gt;1&lt;/sub&gt; = &amp;lambda;&lt;sub&gt;1&lt;/sub&gt;v&lt;sub&gt;1&lt;/sub&gt; &lt;br&gt;
+                                Av&lt;sub&gt;2&lt;/sub&gt; = &amp;lambda;&lt;sub&gt;2&lt;/sub&gt;v&lt;sub&gt;2&lt;/sub&gt; &lt;br&gt;
+                                ...... &lt;br&gt;
+                                Av&lt;sub&gt;n&lt;/sub&gt; = &amp;lambda;&lt;sub&gt;n&lt;/sub&gt;v&lt;sub&gt;n&lt;/sub&gt; &lt;br&gt;
+                            &lt;/span&gt;
+                            Putting these all together &lt;br&gt;
+                            &lt;span class=&quot;math-eqn&quot;&gt;
+                                A [v&lt;sub&gt;1&lt;/sub&gt; v&lt;sub&gt;2&lt;/sub&gt; ... v&lt;sub&gt;n&lt;/sub&gt;] = [v&lt;sub&gt;1&lt;/sub&gt; v&lt;sub&gt;2&lt;/sub&gt; ... v&lt;sub&gt;n&lt;/sub&gt;] &amp;Lambda;, &lt;br&gt;
+                                Here &amp;Lambda; is a diagonal matrix whose &amp;Lambda;&lt;sub&gt;ii&lt;/sub&gt; = &amp;lambda;&lt;sub&gt;i&lt;/sub&gt;
+                                and v&lt;sub&gt;i&lt;/sub&gt;&apos;s are column vectors (also eigenvectors of A)
+                                &lt;br&gt;
+                                &amp;rArr; AQ = Q&amp;Lambda;,
+                            &lt;/span&gt;&lt;br&gt;
+                            For orthogonal matrices, we know that M&lt;sup&gt;-1&lt;/sup&gt; = M&lt;sup&gt;T&lt;/sup&gt;. So multiplying both
+                            side by Q&lt;sup&gt;-1&lt;/sup&gt;, we get&lt;br&gt;
+                            &lt;span class=&quot;math-eqn&quot;&gt;
+                                A = Q&amp;Lambda;Q&lt;sup&gt;-1&lt;/sup&gt; &lt;br&gt;
+                                &amp;rArr; A = Q&amp;Lambda;Q&lt;sup&gt;T&lt;/sup&gt;
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                    Decomposing A with multiplication of three matrices using eigenvalues and eigenvectors is the
+                    Eigendecomposition of matrix.
+
+                    &lt;/p&gt;
+
+                &lt;/li&gt;
+                &lt;li&gt;
+                    &lt;h5&gt; Singular value decomposition &lt;/h5&gt;
+                    &lt;p&gt;
+                        Lets say A is m x n real matrix and v&lt;sub&gt;1&lt;/sub&gt; and v&lt;sub&gt;2&lt;/sub&gt; be two 1 x n real matrix which are
+                        orthonormal. Then A transforms (ie Av) v&lt;sub&gt;i&lt;/sub&gt; from R&lt;sup&gt;n&lt;/sup&gt; dimension to R&lt;sup&gt;m&lt;/sup&gt; dimension.
+                        Lets the transformed vector be u&lt;sub&gt;1&lt;/sub&gt; and u&lt;sub&gt;2&lt;/sub&gt;. If we can find such orthonormal v&lt;sub&gt;i&lt;/sub&gt;
+                        such that their transformed vectors u&lt;sub&gt;i&lt;/sub&gt;&apos;s are also orthonormal, then we can write,
+                        &lt;div class=&quot;important-note&quot;&gt;
+                            &lt;span class=&quot;math-eqn&quot;&gt;
+                                Av&lt;sub&gt;1&lt;/sub&gt; = &amp;sigma;&lt;sub&gt;1&lt;/sub&gt;u&lt;sub&gt;1&lt;/sub&gt; &lt;br&gt;
+                                Av&lt;sub&gt;2&lt;/sub&gt; = &amp;sigma;&lt;sub&gt;2&lt;/sub&gt;u&lt;sub&gt;2&lt;/sub&gt; &lt;br&gt;
+                                ...... &lt;br&gt;
+                                Av&lt;sub&gt;n&lt;/sub&gt; = &amp;sigma;&lt;sub&gt;n&lt;/sub&gt;u&lt;sub&gt;n&lt;/sub&gt; &lt;br&gt;
+                            &lt;/span&gt;
+                            Here &amp;sigma;&lt;sub&gt;i&lt;/sub&gt;&apos;s are the scaling factor. Putting these all together, &lt;br&gt;
+                            &lt;span class=&quot;math-eqn&quot;&gt;
+                                A [v&lt;sub&gt;1&lt;/sub&gt; v&lt;sub&gt;2&lt;/sub&gt; ... v&lt;sub&gt;n&lt;/sub&gt;] = [u&lt;sub&gt;1&lt;/sub&gt; u&lt;sub&gt;2&lt;/sub&gt; ... u&lt;sub&gt;n&lt;/sub&gt;] &amp;Sigma;, &lt;br&gt;
+                                Here &amp;Sigma; is a diagonal matrix whose &amp;Sigma;&lt;sub&gt;ii&lt;/sub&gt; = &amp;sigma;&lt;sub&gt;i&lt;/sub&gt; and v&lt;sub&gt;i&lt;/sub&gt;&apos;s, u&lt;sub&gt;i&lt;/sub&gt;&apos;s
+                                are column vectors.&lt;br&gt;
+                                 &amp;rArr; AV = U&amp;Sigma; &lt;br&gt;
+                                 &amp;rArr; A = U&amp;Sigma;V&lt;sup&gt;T&lt;/sup&gt;, Since U and V are orthonormal.
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        Here A is of dimension m x n, U is of dimension m x m, &amp;Sigma; is of dimension m x n and V is
+                        of dimension n x n. Now to find U and V we can use eigendecomposition of a matrix.
+                        &lt;div class=&quot;important-note&quot;&gt;
+                            &lt;span class=&quot;math-eqn&quot;&gt;
+                                AA&lt;sup&gt;T&lt;/sup&gt; = U&amp;Sigma;V&lt;sup&gt;T&lt;/sup&gt; V&amp;Sigma;U&lt;sup&gt;T&lt;/sup&gt; &lt;br&gt;
+                                &amp;rArr; AA&lt;sup&gt;T&lt;/sup&gt; = U&amp;Sigma;&lt;sup&gt;2&lt;/sup&gt;U&lt;sup&gt;T&lt;/sup&gt;
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        Now we can easily see that eigenvector matrix of AA&lt;sup&gt;T&lt;/sup&gt; is the U in singular value decomposition.
+                        &lt;div class=&quot;important-note&quot;&gt;
+                            &lt;span class=&quot;math-eqn&quot;&gt;
+                                A&lt;sup&gt;T&lt;/sup&gt;A = V&amp;Sigma;U&lt;sup&gt;T&lt;/sup&gt;U&amp;Sigma;V&lt;sup&gt;T&lt;/sup&gt;  &lt;br&gt;
+                                &amp;rArr; A&lt;sup&gt;T&lt;/sup&gt;A = V&amp;Sigma;&lt;sup&gt;2&lt;/sup&gt;V&lt;sup&gt;T&lt;/sup&gt;
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                        Now we can easily see that eigenvector matrix of A&lt;sup&gt;T&lt;/sup&gt;A is the V in singular value decomposition. Also,
+                        in both cases &amp;Sigma;&lt;sup&gt;2&lt;/sup&gt; = &amp;Lambda; of eigenvalues. Since, &amp;Lambda; is a diagonal matrix,
+                        &amp;Sigma;&lt;sub&gt;ii&lt;/sub&gt; = sqrt(&amp;Lambda;&lt;sub&gt;ii&lt;/sub&gt;). &amp;Sigma;&lt;sub&gt;ij&lt;/sub&gt; = 0 if i != j.
+                    &lt;/p&gt;
+
+                &lt;/li&gt;
+            &lt;/ul&gt;
+
+        &lt;/p&gt;
+        &lt;p&gt;
+            Now how does PCA relates to these concepts? Lets say we want to reduce dimension of our feature vectors.
+            We have m vectors with dimension n, given by a matrix A of dimension m x n. Lets assume the vectors are normalized
+            such that mean of each dimension is 0. Now we want to reduce
+            dimension from n to k ( k &lt;= n ). Lets first consider k = 1. Let the basis vector of the new one dimensional
+            coordinate system is x.
+            &lt;div class=&quot;text-center&quot;&gt;
+                &lt;img src=&quot;/static/pca/pca-2dim-to-1dim.png&quot; class=&quot;image-responsive&quot; width=&quot;40%&quot;&gt;
+            &lt;/div&gt;
+            As we can see when reducing a 2 dim feature vector to 1 dim vector, among all the basis vector,
+            the best basis vector has sum of distance from each point to the line is lowest. This is actually true for
+            reducing any n dimension to k dimension. Sum of distance from each point to each basis vector is lowest.
+            Then our dimension reduction loses lowest information. It is also easy to visualize this when reducing
+            dimension from 3 to 2. From each point sum of distance to the 2 dimensional plane is lowest. Since in our
+            feature vector their relative position with each other conveys the information, not how they are in n
+            dimensional plane. Thus for a specific basis vector our goal is to reduce the distance from a point to this vector.
+            In one dimensional case,
+            &lt;div class=&quot;important-note&quot;&gt;
+                Let the point be r. Our basis vector is x, distance vector from r to x is d and projection of r on x is p then,
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                    |r|&lt;sup&gt;2&lt;/sup&gt; = |d|&lt;sup&gt;2&lt;/sup&gt; + |p|&lt;sup&gt;2&lt;/sup&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+                But |r|&lt;sup&gt;2&lt;/sup&gt; is fixed for a point. Thus minimizing |d| is equivalent to  maximizing |p|, ie
+                the projection vector. This is actually true for any dimension, not for just 2 dimension. Here, normalizing
+                the points to have mean 0 is important. Generalizing, If basis vector x is a unit vector and a is a point, Then,
+            &lt;div class=&quot;important-note&quot;&gt;
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                    |p| = ax, a have dimension 1xn and x have dimension nx1.
+                &lt;/div&gt;
+                    In matrix form for each point,
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                    P = Ax, here dim(P) = mx1, dim(A) = mxn and dim(x) = nx1.
+                &lt;/div&gt;
+                P&lt;sub&gt;i1&lt;/sub&gt; represent the projection of vector A&lt;sub&gt;i&lt;/sub&gt; on x. Our target is to maximize
+                Sum(P&lt;sub&gt;i1&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;) for i = 1 to m. ie,
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                    Find such x that |P| is maximized &lt;br&gt;
+                    But max(|P|) = max(|Ax|), where x&amp;isin;R&lt;sup&gt;n&lt;/sup&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            So we need to maximize |Ax|. Since Ax is a column vector we can write,
+            &lt;div class=&quot;important-note&quot;&gt;
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                    |Ax| = (Ax)&lt;sup&gt;T&lt;/sup&gt;Ax = x&lt;sup&gt;T&lt;/sup&gt;A&lt;sup&gt;T&lt;/sup&gt;Ax
+                &lt;/div&gt;
+            &lt;/div&gt;
+            Let v&lt;sub&gt;1&lt;/sub&gt;, . . . , v&lt;sub&gt;n&lt;/sub&gt; be an orthonormal basis of R&lt;sup&gt;n&lt;/sup&gt; consisting of eigen vectors of
+            A&lt;sup&gt;T&lt;/sup&gt;A. With eigen values  &amp;lambda;&lt;sub&gt;1&lt;/sub&gt; &gt;=  &amp;lambda;&lt;sub&gt;2&lt;/sub&gt; &gt;= ..... &gt;=  &amp;lambda;&lt;sub&gt;r&lt;/sub&gt; &gt;= 0 &gt;= .. &gt;= 0.
+            By the theory of singular value decomposition of A we know &amp;sigma;&lt;sub&gt;i&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt; = &amp;lambda;&lt;sub&gt;i&lt;/sub&gt;. So
+            we can write,
+            &lt;div class=&quot;important-note&quot;&gt;
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                     x = c&lt;sub&gt;1&lt;/sub&gt;v&lt;sub&gt;1&lt;/sub&gt; + c&lt;sub&gt;2&lt;/sub&gt;v&lt;sub&gt;2&lt;/sub&gt; + ... + c&lt;sub&gt;n&lt;/sub&gt;v&lt;sub&gt;n&lt;/sub&gt;.
+                     Where, c&lt;sub&gt;i&lt;/sub&gt;&amp;isin; R and c&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt; + .... c&lt;sub&gt;n&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt; &lt;= 1, Since
+                     x is a unit vector.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            Now using the properties of eigenvector, we can write,
+            &lt;div class=&quot;important-note&quot;&gt;
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                    A&lt;sup&gt;T&lt;/sup&gt;Av&lt;sub&gt;1&lt;/sub&gt; = &amp;lambda;&lt;sub&gt;1&lt;/sub&gt;v&lt;sub&gt;1&lt;/sub&gt; &lt;br&gt;
+                    Multiplying both side left by v&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;T&lt;/sup&gt; we get &lt;br&gt;
+                    v&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;T&lt;/sup&gt;A&lt;sup&gt;T&lt;/sup&gt;Av&lt;sub&gt;1&lt;/sub&gt; = v&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;T&lt;/sup&gt;&amp;lambda;&lt;sub&gt;1&lt;/sub&gt;v&lt;sub&gt;1&lt;/sub&gt; &lt;br&gt;
+                    &amp;rArr; v&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;T&lt;/sup&gt;A&lt;sup&gt;T&lt;/sup&gt;Av&lt;sub&gt;1&lt;/sub&gt; = &amp;lambda;&lt;sub&gt;1&lt;/sub&gt;, Since v&lt;sub&gt;i&lt;/sub&gt;&apos;s are unit vectors,
+                    thus v&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;T&lt;/sup&gt;v&lt;sub&gt;1&lt;/sub&gt; = 1
+                &lt;/div&gt;
+            &lt;/div&gt;
+            Next, Putting the value of x in  x&lt;sup&gt;T&lt;/sup&gt;A&lt;sup&gt;T&lt;/sup&gt;Ax, we get
+            &lt;div class=&quot;important-note&quot;&gt;
+                &lt;div class=&quot;math-eqn&quot;&gt;
+                    x&lt;sup&gt;T&lt;/sup&gt;A&lt;sup&gt;T&lt;/sup&gt;Ax = c&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&amp;lambda;&lt;sub&gt;1&lt;/sub&gt; + .... + c&lt;sub&gt;n&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;&amp;lambda;&lt;sub&gt;n&lt;/sub&gt;
+                    &lt;= &amp;lambda;&lt;sub&gt;1&lt;/sub&gt;( c&lt;sub&gt;1&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt; + .... + c&lt;sub&gt;n&lt;/sub&gt;&lt;sup&gt;2&lt;/sup&gt;)
+                    &lt;= &amp;lambda;&lt;sub&gt;1&lt;/sub&gt; &lt;br&gt;
+                    Equality holds if, x = v&lt;sub&gt;1&lt;/sub&gt;.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            Thus |Ax| is maximized if x = v&lt;sub&gt;1&lt;/sub&gt;. Here v&lt;sub&gt;1&lt;/sub&gt; is the corresponding eigenvector of highest
+            eigenvalue of A&lt;sup&gt;T&lt;/sup&gt;A. So to reduce dimension of feature vector from n to k we can take the maximum k
+            eigenvalue-eigenvector pair of A&lt;sup&gt;T&lt;/sup&gt;A as basis vector. Interestingly, A&lt;sup&gt;T&lt;/sup&gt;A is the co variance
+            of A since they have mean value of 0.
+        &lt;/p&gt;
+
+
+    &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://127.0.0.1:4000/jekyll/update/2021/06/05/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2021-06-05T23:06:15+06:00</published><updated>2021-06-05T23:06:15+06:00</updated><id>http://127.0.0.1:4000/jekyll/update/2021/06/05/welcome-to-jekyll</id><content type="html" xml:base="http://127.0.0.1:4000/jekyll/update/2021/06/05/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 

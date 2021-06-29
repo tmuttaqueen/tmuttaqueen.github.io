@@ -26,3 +26,20 @@
 .bg-light-yellow {
     background: #ffffee;
 }
+
+.important-note {
+    background: rgba(76, 175, 80, 0.1);
+    padding: 15px 40px;
+    margin: 10px 20px;
+}
+
+.important-proof {
+    background: rgba(245,255,245, 0.6);
+    padding: 15px 40px;
+    margin: 0 20px;
+}
+
+.math-eqn {
+    letter-spacing: 2px;
+    font-size: 15px;
+}
