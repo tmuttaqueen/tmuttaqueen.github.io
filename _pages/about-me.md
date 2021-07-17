@@ -20,6 +20,7 @@ task and fine tuned it for better accuracy. The outcome of my work,
 ["CoDesc: A Large Code–Description Parallel Dataset"]({{ site.url }}{{ site.baseurl }}/assets/files/CoDesc.pdf)
 published in Findings of the Association for Computational Linguistics, ACL 2021.
 {: style="text-align: justify;"}
+
 ## Work
 After graduating from BUET in February, 2021. I have joined a startup in Dhaka, Bangladesh named PriyoSys Ltd. Here I am 
 working in Django, Python, PostgreSQL stack. Currently I am using an agile approach to develop software and implementing 
