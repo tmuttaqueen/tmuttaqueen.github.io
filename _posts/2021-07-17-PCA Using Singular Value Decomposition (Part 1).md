@@ -3,12 +3,12 @@ title: "PCA Using Singular Value Decomposition (Part 1)"
 excerpt: "What is principal component analysis and how it is related to singular value decomposition."
 last_modified_at: 2021-07-17T09:45:06+06:00
 tags: 
-  - principal component analysis 
-  - singular value decomposition
-  - machine learning
-  - linear algebra
-categories:
+  - Principal Component Analysis 
+  - Singular Value Decomposition
   - Machine Learning
+  - Linear Algebra
+categories:
+  - Machine-Learning
 toc: true
 toc_label: "Contents"
 toc_sticky: true 
@@ -83,7 +83,7 @@ Decomposing A with multiplication of three matrices using eigenvalues and eigenv
 the Eigendecomposition of matrix.
 
 
-### Singular value decomposition
+### Singular Value Decomposition
 
 Lets say $ A $ is $ m \times n $ real matrix and $ v_1 $ and $ v_2 $ be two $ 1 \times n $ 
 real matrix which are orthonormal. 
@@ -113,8 +113,17 @@ Thus we can write eqn \eqref{eq8} as,
 
 $$
 \begin{align}
-AV &= UΣ \\
- A &= UΣV^\top , \ \text{ $ U $ and $ V $ are orthonormal.}  
+AV &= UΣ 
+\end{align}
+$$
+
+Since $ U $ and $ V $ are orthonormal, thus $ V^\top = V^{-1} $ and $ V V^\top = V^\top V = I $. 
+Same is true for $ U $. Now,
+multiplying both side of the above equation with $ V^\top $ , we get
+
+$$
+\begin{align}
+ A &= UΣV^\top 
 \end{align}
 $$
 
@@ -125,9 +134,24 @@ we can use eigendecomposition of a matrix.
 $$
 \begin{align}
 A A^\top &= U Σ V^\top {(U Σ V^\top)}^\top \\
-    &= U Σ V^\top V Σ^\top U^\top \\
-    &= U Σ Σ^\top U^\top , \ \text{$ V $ is orthonormal, so $ V^\top V  = I $ }   \\
-    &= U Σ^2 U^\top , \ \text{For diagonal matrix $ Σ^\top=Σ $.}  \tag{y}\label{eqy}
+         &= U Σ V^\top V Σ^\top U^\top
+\end{align}
+$$
+
+Since, $ V $ is orthonormal, so $ V^\top V  = I $ and we know that $ MI = M $, where $ I $ is an
+identity matrix. So,
+
+$$
+\begin{align}
+A A^\top &= U Σ Σ^\top U^\top 
+\end{align}
+$$
+
+For diagonal matrix  $ Σ^\top=Σ $.
+
+$$
+\begin{align}
+A A^\top &= U Σ^2 U^\top \tag{y}\label{eqy}
 \end{align}
 $$
 
@@ -136,7 +160,7 @@ matrix of $ AA^\top $ is the $ U $ in singular value decomposition. Similar to h
 
 $$
 \begin{align}
-A^\top A &= V Σ U^\top U Σ V^\top \\
+A^\top A &= V Σ^\top U^\top U Σ V^\top \\
          &= V Σ^2 V^\top
 \end{align}
 $$

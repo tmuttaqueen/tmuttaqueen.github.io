@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-17T23:13:08+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tanveer Muttaqueen</title><subtitle>Programming and Algorithm Blog.</subtitle><author><name>Tanveer Muttaqueen</name><email>tanveer.mutta@gmail.com</email></author><entry><title type="html">PCA Using Singular Value Decomposition (Part 1)</title><link href="http://localhost:4000/machine%20learning/PCA-Using-Singular-Value-Decomposition-(Part-1)/" rel="alternate" type="text/html" title="PCA Using Singular Value Decomposition (Part 1)" /><published>2021-07-17T00:00:00+06:00</published><updated>2021-07-17T09:45:06+06:00</updated><id>http://localhost:4000/machine%20learning/PCA%20Using%20Singular%20Value%20Decomposition%20(Part%201)</id><content type="html" xml:base="http://localhost:4000/machine%20learning/PCA-Using-Singular-Value-Decomposition-(Part-1)/">&lt;h2 id=&quot;what-is-pca&quot;&gt;What is PCA&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-07-18T00:01:40+06:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tanveer Muttaqueen</title><subtitle>Programming and Algorithm Blog.</subtitle><author><name>Tanveer Muttaqueen</name><email>tanveer.mutta@gmail.com</email></author><entry><title type="html">PCA Using Singular Value Decomposition (Part 1)</title><link href="http://localhost:4000/machine-learning/PCA-Using-Singular-Value-Decomposition-(Part-1)/" rel="alternate" type="text/html" title="PCA Using Singular Value Decomposition (Part 1)" /><published>2021-07-17T00:00:00+06:00</published><updated>2021-07-17T09:45:06+06:00</updated><id>http://localhost:4000/machine-learning/PCA%20Using%20Singular%20Value%20Decomposition%20(Part%201)</id><content type="html" xml:base="http://localhost:4000/machine-learning/PCA-Using-Singular-Value-Decomposition-(Part-1)/">&lt;h2 id=&quot;what-is-pca&quot;&gt;What is PCA&lt;/h2&gt;
 &lt;p&gt;Using Principal Component Analysis (PCA) we can change the basis of data points. Suppose, we have $ m $ data points each 
 with $ n $ dimension. Then, using PCA we can map the data points using $ k $ $ ( k \leq n ) $  unit vectors as the new basis. 
 If $ k &amp;lt; n $ then we have reduced the dimension of the data points from $ n $ to $ k $, may be with some data loss. 
@@ -59,7 +59,7 @@ A &amp;amp;= QΛQ^{-1} \\
 &lt;p&gt;Decomposing A with multiplication of three matrices using eigenvalues and eigenvectors is 
 the Eigendecomposition of matrix.&lt;/p&gt;
 
-&lt;h3 id=&quot;singular-value-decomposition&quot;&gt;Singular value decomposition&lt;/h3&gt;
+&lt;h3 id=&quot;singular-value-decomposition&quot;&gt;Singular Value Decomposition&lt;/h3&gt;
 
 &lt;p&gt;Lets say $ A $ is $ m \times n $ real matrix and $ v_1 $ and $ v_2 $ be two $ 1 \times n $ 
 real matrix which are orthonormal. 
@@ -84,8 +84,15 @@ Av_n &amp;amp;= σ_nu_n \tag{7}\label{eq7} \\
 Thus we can write eqn \eqref{eq8} as,&lt;/p&gt;
 
 \[\begin{align}
-AV &amp;amp;= UΣ \\
- A &amp;amp;= UΣV^\top , \ \text{ $ U $ and $ V $ are orthonormal.}  
+AV &amp;amp;= UΣ 
+\end{align}\]
+
+&lt;p&gt;Since $ U $ and $ V $ are orthonormal, thus $ V^\top = V^{-1} $ and $ V V^\top = V^\top V = I $. 
+Same is true for $ U $. Now,
+multiplying both side of the above equation with $ V^\top $ , we get&lt;/p&gt;
+
+\[\begin{align}
+ A &amp;amp;= UΣV^\top 
 \end{align}\]
 
 &lt;p&gt;Here $ A $ is of dimension $ m \times n $, $ U $ is of dimension $ m \times m $, $ Σ $ is of dimension 
@@ -94,16 +101,27 @@ we can use eigendecomposition of a matrix.&lt;/p&gt;
 
 \[\begin{align}
 A A^\top &amp;amp;= U Σ V^\top {(U Σ V^\top)}^\top \\
-    &amp;amp;= U Σ V^\top V Σ^\top U^\top \\
-    &amp;amp;= U Σ Σ^\top U^\top , \ \text{$ V $ is orthonormal, so $ V^\top V  = I $ }   \\
-    &amp;amp;= U Σ^2 U^\top , \ \text{For diagonal matrix $ Σ^\top=Σ $.}  \tag{y}\label{eqy}
+         &amp;amp;= U Σ V^\top V Σ^\top U^\top
+\end{align}\]
+
+&lt;p&gt;Since, $ V $ is orthonormal, so $ V^\top V  = I $ and we know that $ MI = M $, where $ I $ is an
+identity matrix. So,&lt;/p&gt;
+
+\[\begin{align}
+A A^\top &amp;amp;= U Σ Σ^\top U^\top 
+\end{align}\]
+
+&lt;p&gt;For diagonal matrix  $ Σ^\top=Σ $.&lt;/p&gt;
+
+\[\begin{align}
+A A^\top &amp;amp;= U Σ^2 U^\top \tag{y}\label{eqy}
 \end{align}\]
 
 &lt;p&gt;Now comparing eqn \eqref{eqx} and eqn \eqref{eqy} can easily see that eigenvector 
 matrix of $ AA^\top $ is the $ U $ in singular value decomposition. Similar to how we get eqn \eqref{eqy}, We see&lt;/p&gt;
 
 \[\begin{align}
-A^\top A &amp;amp;= V Σ U^\top U Σ V^\top \\
+A^\top A &amp;amp;= V Σ^\top U^\top U Σ V^\top \\
          &amp;amp;= V Σ^2 V^\top
 \end{align}\]
 
@@ -158,7 +176,7 @@ So we need to $ maximize \ \vert \vert Ax \vert \vert $. Since $ Ax $ is a colum
 
 &lt;p&gt;Let $ v_1, . . . , v_n $ be an orthonormal basis of $ R^n $ consisting of eigenvectors 
 of $ A^\top A $. With eigenvalues $ λ_1 \geq λ_2 \geq ….. \geq λ_r \geq 0 \geq .. \geq 0 $. 
-By the theory of singular value decomposition of $ A $ we know $ {σ_i}2 = λ_i $. So we can write,&lt;/p&gt;
+By the theory of singular value decomposition of $ A $ we know $ σ_i^2 = λ_i $. So we can write,&lt;/p&gt;
 
 \[x = c_1v_1 + c_2v_2 + ... + c_nv_n.\]
 
@@ -189,4 +207,4 @@ Here $ v_1 $ is the corresponding eigenvector of highest eigenvalue of $ A^\top 
 So to reduce dimension of feature vector from $ n $ to $ k $ we can take the maximum 
 $ k $ eigenvalue-eigenvector pair of $ A^\top A $ as basis vector. Interestingly, 
 $ A^\top A $ is the covariance matrix of $ A $ since they have mean value of 0. 
-In the next part of PCA, I will do a python implementation of PCA.&lt;/p&gt;</content><author><name>Tanveer Muttaqueen</name><email>tanveer.mutta@gmail.com</email></author><category term="Machine Learning" /><category term="principal component analysis" /><category term="singular value decomposition" /><category term="machine learning" /><category term="linear algebra" /><summary type="html">What is principal component analysis and how it is related to singular value decomposition.</summary></entry></feed>
+In the next part of PCA, I will do a python implementation of PCA.&lt;/p&gt;</content><author><name>Tanveer Muttaqueen</name><email>tanveer.mutta@gmail.com</email></author><category term="Machine-Learning" /><category term="Principal Component Analysis" /><category term="Singular Value Decomposition" /><category term="Machine Learning" /><category term="Linear Algebra" /><summary type="html">What is principal component analysis and how it is related to singular value decomposition.</summary></entry></feed>
