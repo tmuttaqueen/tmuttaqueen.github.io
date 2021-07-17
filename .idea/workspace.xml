@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="005fd24b-19f2-454c-8fe9-5f4829fc4717" name="Default Changelist" comment="refactored mathjax location">
-      <change afterPath="$PROJECT_DIR$/_pages/category-wise-posts.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_pages/tags-wise-posts.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_pages/year-wise-posts.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/2021-07-17-PCA Using Singular Value Decomposition (Part 1).md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/navigation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/navigation.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/mathjax_v3.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/mathjax_v3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+    <list default="true" id="005fd24b-19f2-454c-8fe9-5f4829fc4717" name="Default Changelist" comment="added pca using svd part 1">
+      <change beforePath="$PROJECT_DIR$/_posts/2021-07-17-PCA Using Singular Value Decomposition (Part 1).md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2021-07-17-PCA Using Singular Value Decomposition (Part 1).md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +83,7 @@
       <workItem from="1625986452748" duration="597000" />
       <workItem from="1626452192531" duration="7862000" />
       <workItem from="1626496539004" duration="5749000" />
-      <workItem from="1626508911385" duration="16548000" />
+      <workItem from="1626508911385" duration="16878000" />
     </task>
     <task id="LOCAL-00001" summary="refactored mathjax location">
       <created>1626509489141</created>
@@ -101,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626509489141</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added pca using svd part 1">
+      <created>1626542099974</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1626542099974</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +119,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactored mathjax location" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored mathjax location" />
+    <MESSAGE value="added pca using svd part 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="added pca using svd part 1" />
   </component>
 </project>

@@ -199,7 +199,7 @@ $$
 
 Let $ v_1, . . . , v_n $ be an orthonormal basis of $ R^n $ consisting of eigenvectors 
 of $ A^\top A $. With eigenvalues $ λ_1 \geq λ_2 \geq ..... \geq λ_r \geq 0 \geq .. \geq 0 $. 
-By the theory of singular value decomposition of $ A $ we know $ {σ_i}2 = λ_i $. So we can write,
+By the theory of singular value decomposition of $ A $ we know $ σ_i^2 = λ_i $. So we can write,
 
 $$
 x = c_1v_1 + c_2v_2 + ... + c_nv_n. 
