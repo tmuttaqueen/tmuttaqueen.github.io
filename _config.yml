@@ -73,7 +73,7 @@ google:
   search_engine_id       : # YOUR_SEARCH_ENGINE_ID
   instant_search         : # false (default), true
 # SEO Related
-google_site_verification :
+google_site_verification : 'google-site-verification=5ndEFEUsNn8Sxp3y961NVYyrDfYVR1Q0wksyHq8jkxA'
 bing_site_verification   :
 yandex_site_verification :
 naver_site_verification  :
@@ -82,10 +82,10 @@ naver_site_verification  :
 twitter:
   username               :
 facebook:
-  username               :
+  username               : 't.muttaqueen'
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : "/assets/images/bio-pic.png"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
