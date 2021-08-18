@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="005fd24b-19f2-454c-8fe9-5f4829fc4717" name="Default Changelist" comment="added google site verification">
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +85,7 @@
       <workItem from="1626452192531" duration="7862000" />
       <workItem from="1626496539004" duration="5749000" />
       <workItem from="1626508911385" duration="19812000" />
-      <workItem from="1627292452484" duration="615000" />
+      <workItem from="1627292452484" duration="1920000" />
     </task>
     <task id="LOCAL-00001" summary="refactored mathjax location">
       <created>1626509489141</created>
@@ -121,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627292947232</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added google site verification">
+      <created>1627293075375</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1627293075375</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
