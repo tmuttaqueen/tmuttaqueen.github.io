@@ -14,7 +14,7 @@ toc_label: "Contents"
 toc_sticky: true 
 words_per_minute: 100
 header:
-  image: /assets/images/facial-keypoint-detection/training_image.png
+  og_image: /assets/images/facial-keypoint-detection/training_image.png
 ---
 
 <style>
