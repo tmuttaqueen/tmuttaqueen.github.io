@@ -22,8 +22,8 @@ published in Findings of the Association for Computational Linguistics, ACL 2021
 {: style="text-align: justify;"}
 
 ## Work
-After graduating from BUET in February, 2021. I have joined a startup in Dhaka, Bangladesh named PriyoSys Ltd. Here I am 
-working in Django, Python, PostgreSQL stack. Used an agile approach to develop software and implementing 
+After graduating from BUET in February, 2021. I have joined a startup in Dhaka, Bangladesh named PriyoSys Ltd. Here I have 
+worked in Django, Python, PostgreSQL stack. Used an agile approach to develop software and implementing 
 new features and improvements to the existing projects. Worked on Nearby News recommender system deployed it in AWS Lambda and used
 Python and AWS DynamoDB in the backend. Then worked mostly on another bidding project similar to eBay named [sowda.com](https.sowdda.com). Here worked on 3rd party seller integration, order payment and delivery system. Used Celery and Redis in the backend for bid request processing. For database used postgres. Also worked on some other projects for a small time, [priyo.org](https://priyo.org/) and priyo serverside payment method integration ( bKash, Nagad, DBBL, Paypal etc. ).
 
