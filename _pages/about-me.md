@@ -28,7 +28,7 @@ new features and improvements to the existing projects. Worked on Nearby News re
 Python and AWS DynamoDB in the backend. Then worked mostly on another bidding project similar to eBay named [sowda.com](https://sowda.com). Here worked on 3rd party seller integration, order payment and delivery system. Used Celery and Redis in the backend for bid request processing. For database used postgres. Also worked on some other projects for a small time, [priyo.org](https://priyo.org/) and priyo serverside payment method integration ( bKash, Nagad, DBBL, Paypal etc. ).
 
 
-After woking seven month's here, I joined another local company in Bangladesh named TigerIT Limited. Here I am working on deep learning based face recognition pipeline. My current task is making face detection and allignment faster with lowest accuracy lost and make the model production ready by converting it C++ using onnx and write some additional API's on top.
+After woking seven months here, I joined another local company in Bangladesh named TigerIT Limited. Here I am working on deep learning based face recognition pipeline. My current task is making face detection and allignment faster with lowest accuracy lost and make the model production ready by converting it C++ using onnx and write some additional API's on top.
 {: style="text-align: justify;"}
 ## Resume
 For more details take a brief look in my [resume]({{ site.url }}{{ site.baseurl }}/assets/files/Tanveer Muttaqueen Resume.pdf).
