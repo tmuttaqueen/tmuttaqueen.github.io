@@ -302,7 +302,7 @@ model = FacePointModel()
 criterion = torch.nn.MSELoss()
 # Using Adam optimizer
 optimizer = optim.Adam(model.parameters(), lr=0.001)
-# Decay LR by a factor of 0.1 every 7 epochs
+# Decay LR by a factor of 0.08 every 25 epochs
 lrscheduler = lr_scheduler.StepLR(optimizer, step_size=25, gamma=0.08)
 fit( 100, model, train_dl, valid_dl, criterion, optimizer, lrscheduler, device = 'cuda' )
 ```
