@@ -27,10 +27,10 @@ header:
 
 </style>
 
-Although I did some deep learning before in my undergraduate, but never participated in a Kaggle competition. After started working at TigerIT on Face Recognition system, I thought why not try an easy image related problem in Kaggle! This is my first solved problem in Kaggle.
+Although I did some deep learning before in my undergraduate, but never participated in a Kaggle competition. After started working at TigerIT on Face Recognition system, I thought why not try an easy image related problem in Kaggle! 
 
 ## Problem
-[Here](https://www.kaggle.com/c/facial-keypoints-detection/) is the problem link. It is an old easy problem. To solve this problem I needed the basic knowledge of how to write Pytorch model, what is CNN ( Convolution Neural Network ), Resnet ( A famous CNN architecture ) and transfer learning. After downloading the dataset, there were four files.  
+[Here](https://www.kaggle.com/c/facial-keypoints-detection/) is the problem link. It is an old problem. To solve this problem I needed the basic knowledge of how to write Pytorch model, what is CNN ( Convolution Neural Network ), Resnet ( A famous CNN architecture ) and transfer learning. After downloading the dataset, there were four files.  
 
 <img class="center-image" src="/assets/images/facial-keypoint-detection/dataset.png" alt="Dataset" style="width:300px;"/>
 
