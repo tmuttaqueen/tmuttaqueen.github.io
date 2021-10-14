@@ -2,7 +2,7 @@
 permalink: /about/
 title: "About Me"
 excerpt: "I am a software engineer. Did competitive programming in undergraduate."
-last_modified_at: 2021-07-17T10:00:00+06:00
+last_modified_at: 2021-10-14T10:00:00+06:00
 toc: true
 toc_label: "Contents"
 toc_sticky: true 
@@ -23,8 +23,12 @@ published in Findings of the Association for Computational Linguistics, ACL 2021
 
 ## Work
 After graduating from BUET in February, 2021. I have joined a startup in Dhaka, Bangladesh named PriyoSys Ltd. Here I am 
-working in Django, Python, PostgreSQL stack. Currently I am using an agile approach to develop software and implementing 
-new features and improvements to existing projects.
+working in Django, Python, PostgreSQL stack. Used an agile approach to develop software and implementing 
+new features and improvements to the existing projects. Worked on Nearby News recommender system deployed it in AWS Lambda and used
+Python and AWS DynamoDB in the backend. Then worked mostly on another bidding project similar to eBay named [sowda.com](https.sowdda.com). Here worked on 3rd party seller integration, order payment and delivery system. Used Celery and Redis in the backend for bid request processing. For database used postgres. Also worked on some other projects for a small time, [priyo.org](https://priyo.org/) and priyo serverside payment method integration ( bKash, Nagad, DBBL, Paypal etc. ).
+
+
+After woking seven month's here, I joined another local company in Bangladesh named TigerIT Limited. Here I am working on face recognition pipeline. My current task is making face detection and allignment faster with lowest accuracy lost and make the model production ready by converting it C++ using onnx and write some additional API's on top.
 {: style="text-align: justify;"}
 ## Resume
 For more details take a brief look in my [resume]({{ site.url }}{{ site.baseurl }}/assets/files/Tanveer Muttaqueen Resume.pdf).
