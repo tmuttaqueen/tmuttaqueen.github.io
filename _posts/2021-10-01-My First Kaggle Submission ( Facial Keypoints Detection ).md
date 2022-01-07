@@ -248,7 +248,7 @@ class EarlyStopping:
 Now the training part. The Kaggle website already said that they will be using RMSE loss to score each submission. So 
 I used pytorch builtin MSELoss class as my loss function ( also known as criterion ).  
 
-For optimizer, I used Adam. I also tried SGD optimizer but Adam gave better result. To balance my learning rate ( ie. reducing ) I used StepLR as Learning Rate Scheduler that reduces my optimizer's learning rate after specific epochs. Most of the time Adam works better without any LR Scheduler becasue it itself adjusts the learning rate. This is the code I used:
+For optimizer, I used Adam. I also tried SGD optimizer but Adam gave better result. To balance my learning rate ( ie. reducing ) I used StepLR as Learning Rate Scheduler that reduces my optimizer's learning rate after specific epochs. This is the code I used:
 
 
 ```python
