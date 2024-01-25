@@ -86,7 +86,7 @@ facebook:
   username               : 'tanveer.m002'
   app_id                 :
   publisher              :
-og_image                 : "/assets/images/bio-pic.png"
+og_image                 : "/assets/images/my-pic.png"
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -105,7 +105,7 @@ analytics:
 # Site Author
 author:
   name             : "Tanveer Muttaqueen"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/my-pic.png"
   bio              : "A tech junkie and an insatiable problem solver. I'm constantly digging into documentation and churning out code."
   location         : "Dublin, Ireland"
   email            : "tanveer.mutta@gmail.com"
